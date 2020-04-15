@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>SORTING_VISUALIZER</title>
+        <link rel='stylesheet' href='styles/main.css'>
+        <link rel='stylesheet' href='styles/dropdown.css'>
+        <link rel='stylesheet' href='styles/topnav.css'>
+    </head>
+
+    <body onload='init()'>
+
+        <div class='topnav'>
+            <button class='navbutton' onclick='constructArray()'>New list</button>
+
+            <div class='dropdown navbutton'>
+                <button onclick='dropDown(this)' class='dropbtn' value='algorithms-dropdown'>Algorithms</button>
+                <div id='algorithms-dropdown' class='dropdown-content'>
+                    <button value='bubble' class='dropdown-object' onclick='change_alg(this)'>BubbleSort</button>
+                    <button value='insertion' class='dropdown-object' onclick='change_alg(this)'>Insertion Sort</button>
+                </div>
+            </div>
+
+            <div class='dropdown navbutton'>
+                <button onclick='dropDown(this)' class='dropbtn' value='array-length-dropdown'>Array length</button>
+                <div id='array-length-dropdown' class='dropdown-content'>
+                    <input type='range' min='5' max='500' value='20' class='dropdown-object slider' 
+                            id='arr-length-slider' oninput='changeText(this, "arr-length")'>
+                    <input type='text' value='20' class='dropdown-object'
+                            id='arr-length' oninput='changeText(this, "arr-length-slider")'>
+                </div>
+            </div>
+
+            <button class='navbutton start' onclick='sort()'>START</button>
+        </div>
+
+        <canvas id='array-canvas' onvolumechange='resizeCanvas()'></canvas>
+    </body>
+
+    <script src='scripts/main.js'></script>
+</html>
