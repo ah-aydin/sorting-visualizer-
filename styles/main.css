@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#array-canvas {
+    width: 80%;
+}
