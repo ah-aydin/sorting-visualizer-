@@ -1,0 +1,21 @@
+.dropbtn {
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(50, 50, 50);;
+    width: 300px;
+    z-index: 1;
+}
+
+.dropdown-content .dropdown-object {
+    color: black;
+    background-color: red;
+    width: 100%;
+    text-decoration: none;
+    display: block;
+}
+
+.show {display: block;}
