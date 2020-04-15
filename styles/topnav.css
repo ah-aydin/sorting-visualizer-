@@ -1,0 +1,45 @@
+.topnav {
+    background-color: rgb(28, 28, 28);
+    overflow: hidden;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.navbutton {
+    float: left;
+    margin-left: 1px;
+    width: 200px;
+}
+
+.topnav button, .topnav .dropdown-object {
+    background-color: rgb(50, 50, 50);
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgb(240, 240, 240);
+    border: 0;
+    margin: 0;
+}
+
+.topnav button:hover {
+    background-color: rgb(180, 180, 180);
+    color: rgb(50, 50, 50)
+}
+
+.topnav #arr-length-slider {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.topnav #arr-length {
+    text-align: center;
+}
+
+.topnav .start {
+    float: right;
+    background-color: green;
+}
+
+.topnav #arr-length {
+    background-color: rgb(70, 70, 70);
+}
