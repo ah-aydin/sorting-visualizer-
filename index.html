@@ -16,8 +16,11 @@
             <div class='dropdown navbutton'>
                 <button onclick='dropDown(this)' class='dropbtn' value='algorithms-dropdown'>Algorithms</button>
                 <div id='algorithms-dropdown' class='dropdown-content'>
-                    <button value='bubble' class='dropdown-object' onclick='change_alg(this)'>BubbleSort</button>
+                    <button value='bubble' class='dropdown-object' onclick='change_alg(this)'>Bubble Sort</button>
                     <button value='insertion' class='dropdown-object' onclick='change_alg(this)'>Insertion Sort</button>
+                    <button value='selection' class='dropdown-object' onclick='change_alg(this)'>Selection Sort</button>
+                    <button value='merge' class='dropdown-object' onclick='change_alg(this)'>Merge Sort</button>
+                    <button value='quick' class='dropdown-object' onclick='change_alg(this)'>Quick Sort</button>
                 </div>
             </div>
 
@@ -31,7 +34,7 @@
                 </div>
             </div>
 
-            <button class='navbutton start' onclick='sort()'>START</button>
+            <button id='start' class='navbutton start' onclick='sort()'>BUBBLE START</button>
         </div>
 
         <canvas id='array-canvas' onvolumechange='resizeCanvas()'></canvas>
