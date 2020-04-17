@@ -14,6 +14,13 @@ function init(){
     constructArray()
 }
 
+function toggleButtons(disabled=false){
+    buttonList = document.getElementsByTagName('button')
+    for (var i = 0; i < buttonList.length; ++i){
+        buttonList[i].disabled = disabled
+    }
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -26,6 +33,7 @@ function change_alg(obj){
 }
 
 async function sort(){
+    toggleButtons(true)
     switch (alg){
         case 'bubble':
             await bubbleSort(arr);
@@ -46,6 +54,7 @@ async function sort(){
     drawArr(arr, -1, -1, 'green')
     await sleep(1000)
     drawArr(arr)
+    toggleButtons(false)
 }
 
 async function bubbleSort(arr){
@@ -87,6 +96,8 @@ async function selectionSort(arr){
         var min = arr[i]
         var minIndex = i
         for (var j = i + 1; j < arr.length; ++j){
+            drawArr(arr, -1, j)
+            await sleep(50)
             if (arr[j] < min){
                 min = arr[j]
                 minIndex = j
@@ -123,17 +134,21 @@ async function merge(arr, left, mid, right){
             arr[left + i + j] = rightArr[j]
             ++j
         }
+        drawArr(arr, -1, -1, -1, [left, right])
+        await sleep(50)
     }
     while (i < sizeLeft){
         arr[left + i + j] = leftArr[i]
         ++i
+        drawArr(arr, -1, -1, -1, [left, right])
+        await sleep(50)
     }
     while (j < sizeRight){
         arr[left + i + j] = rightArr[j]
         ++j
+        drawArr(arr, -1, -1, -1, [left, right])
+        await sleep(50)
     }
-    drawArr(arr)
-    await sleep(100)
 }
 
 async function mergeSort(arr, left, right){
@@ -188,7 +203,7 @@ async function quickSort(arr, left, right){
 
 var arr = []
 arr_length = 20
-top_limit = 500
+top_limit = 10000
 max_num = 0
 function constructArray(){
     arr = []
@@ -201,7 +216,7 @@ function constructArray(){
     drawArr(arr)
 }
 
-function drawArr(arr, movedpiece=-1, movedpiece2=-1, color=-1){
+function drawArr(arr, movedpiece=-1, movedpiece2=-1, color=-1, interval=[]){
     var ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -224,8 +239,13 @@ function drawArr(arr, movedpiece=-1, movedpiece2=-1, color=-1){
         if (color != -1){
             ctx.fillStyle = color
         }
+        if (interval.length == 2){
+            if (interval[0] <= i && i <= interval[1]){
+                ctx.fillStyle = "#FF0000"
+            }
+        }
         ctx.fillRect(block_size * i + padding, 0, block_size - padding * 2, canvas.height / 10 + block_height * arr[i])
-        if (arr.length <= 20){
+        if (arr.length <= 30){
             ctx.moveTo(block_size * i + block_size / 2, canvas.height / 10 + block_height * arr[i] - 30)
             ctx.lineTo(block_size * i + block_size / 2, canvas.height / 10 + block_height * arr[i] - 2)
             ctx.stroke()
