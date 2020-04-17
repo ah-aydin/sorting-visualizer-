@@ -21,6 +21,10 @@
     margin: 0;
 }
 
+.topnav .dropdown-content {
+    width: inherit;
+}
+
 .topnav button:hover {
     background-color: rgb(180, 180, 180);
     color: rgb(50, 50, 50)
